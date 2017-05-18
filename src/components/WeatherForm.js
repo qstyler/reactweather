@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class WeatherForm extends Component {
   constructor(props) {
@@ -31,4 +31,4 @@ class WeatherForm extends Component {
   }
 }
 
-export default WeatherForm
+export default WeatherForm;

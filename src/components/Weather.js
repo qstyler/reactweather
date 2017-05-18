@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
-import openWeatherMap from '../api/openWeatherMap'
+import openWeatherMap from '../api/openWeatherMap';
 import { CircularProgress as Progress } from 'material-ui'
 import { MuiThemeProvider } from 'material-ui/styles';
 
@@ -75,4 +75,4 @@ class Weather extends Component {
   );
 }
 
-export default Weather
+export default Weather;

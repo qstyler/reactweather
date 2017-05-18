@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/find?units=metric&appid=a723314f03a74b063856dea4ad5f93f7';
 
@@ -31,8 +31,8 @@ export default {
         }
       })
       .catch((error) => {
-        throw new Error(error.message)
+        throw new Error(error.message);
       })
     ;
   }
-}
+};
