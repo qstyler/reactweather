@@ -6,11 +6,11 @@ import About from "./About";
 import Examples from "./Examples";
 
 export default ({ match }) => (
-  <div>
-    <Nav match={match}/>
-    <h2>Main component</h2>
-    <Route exact path={match.url} component={Weather}/>
-    <Route path={`${match.url.replace(/\/$/, '')}/about`} component={About}/>
-    <Route path={`${match.url.replace(/\/$/, '')}/examples`} component={Examples}/>
-  </div>
+    <div>
+        <Nav match={match} />
+        <h2>Main component</h2>
+        <Route exact path={match.url} component={Weather} />
+        <Route path={`${match.url.replace(/\/$/, '')}/about`} component={About} />
+        <Route path={`${match.url.replace(/\/$/, '')}/examples`} component={Examples} />
+    </div>
 );
