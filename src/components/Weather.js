@@ -56,6 +56,7 @@ class Weather extends Component {
 
         return (
             <div>
+                <h1 className="text-center">Get weather</h1>
                 {render()}
                 <WeatherForm onSearch={this.handleSearch} />
             </div>
@@ -63,11 +64,11 @@ class Weather extends Component {
     }
 
     static renderLoader = () => (
-        <div>Loading...</div>
+        <p className="text-center">Loading...</p>
     );
 
     static renderEnterLocation = () => (
-        <h3>Please ener location</h3>
+        <p className="text-center">Please ener location</p>
     );
 }
 

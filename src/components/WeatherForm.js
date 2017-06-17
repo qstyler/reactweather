@@ -24,7 +24,7 @@ class WeatherForm extends Component {
                     <input type="text" ref="location" />
                 </p>
                 <p>
-                    <button>Get weather</button>
+                    <button className="button expanded">Get weather</button>
                 </p>
             </form>
         );
