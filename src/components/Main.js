@@ -10,9 +10,12 @@ import 'foundation-sites/dist/css/foundation.min.css';
 export default ({ match }) => (
     <div>
         <Nav match={match} />
-        <h2>Main component</h2>
-        <Route exact path={match.url} component={Weather} />
-        <Route path={`${match.url.replace(/\/$/, '')}/about`} component={About} />
-        <Route path={`${match.url.replace(/\/$/, '')}/examples`} component={Examples} />
+        <div className="row">
+            <div className="columns medium-6 large-4 small-centered">
+                <Route exact path={match.url} component={Weather} />
+                <Route path={`${match.url.replace(/\/$/, '')}/about`} component={About} />
+                <Route path={`${match.url.replace(/\/$/, '')}/examples`} component={Examples} />
+            </div>
+        </div>
     </div>
 );
