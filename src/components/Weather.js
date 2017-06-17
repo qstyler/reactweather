@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import openWeatherMap from '../api/openWeatherMap';
-import { CircularProgress as Progress } from 'material-ui'
-import { MuiThemeProvider } from 'material-ui/styles';
 
 class Weather extends Component {
 
@@ -65,9 +63,7 @@ class Weather extends Component {
     }
 
     static renderLoader = () => (
-        <MuiThemeProvider>
-            <Progress />
-        </MuiThemeProvider>
+        <div>Loading...</div>
     );
 
     static renderEnterLocation = () => (

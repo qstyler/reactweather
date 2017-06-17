@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Nav from "./Nav";
-import Weather from "./Weather";
-import About from "./About";
-import Examples from "./Examples";
+import Nav from './Nav';
+import Weather from './Weather';
+import About from './About';
+import Examples from './Examples';
+
+import 'foundation-sites/dist/css/foundation.min.css';
 
 export default ({ match }) => (
     <div>
