@@ -6,6 +6,7 @@ import About from './About';
 import Examples from './Examples';
 
 import 'foundation-sites/dist/css/foundation.min.css';
+import 'foundation-sites/dist/css/foundation-float.min.css';
 
 export default ({ match }) => (
     <div>

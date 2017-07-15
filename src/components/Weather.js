@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import openWeatherMap from '../api/openWeatherMap';
+import ErrorModal from "./ErrorModal";
 
 class Weather extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: false
+            isLoading: false,
+            errorMessage: undefined,
         };
 
         this.handleSearch = this.handleSearch.bind(this);
@@ -17,7 +19,8 @@ class Weather extends Component {
     handleSearch(location) {
         const _this = this;
         this.setState({
-            isLoading: true
+            isLoading: true,
+            errorMessage: undefined,
         });
         setTimeout(() => {
             openWeatherMap
@@ -25,16 +28,17 @@ class Weather extends Component {
                 .then((response) => {
                     _this.setState({
                         location: response.name,
-                        temp: response.temp
+                        temp: response.temp,
                     })
                 })
                 .catch((error) => {
-                    alert(error);
-                    console.error(error);
+                    _this.setState({
+                        errorMessage: error.message,
+                    });
                 })
                 .then(() => {
                     _this.setState({
-                        isLoading: false
+                        isLoading: false,
                     });
                 });
         }, 500);
@@ -44,7 +48,7 @@ class Weather extends Component {
 
         const { temp, location, isLoading } = this.state;
 
-        const render = () => {
+        const renderMessage = () => {
             if (isLoading) {
                 return Weather.renderLoader();
             } else if (!location) {
@@ -57,10 +61,19 @@ class Weather extends Component {
         return (
             <div>
                 <h1 className="text-center">Get weather</h1>
-                {render()}
+                {renderMessage()}
                 <WeatherForm onSearch={this.handleSearch} />
+                {this.renderError()}
             </div>
         );
+    }
+
+    renderError() {
+        if (typeof this.state.errorMessage === 'string') {
+            return (
+                <ErrorModal message={this.state.errorMessage} />
+            );
+        }
     }
 
     static renderLoader = () => (

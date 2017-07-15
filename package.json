@@ -1,27 +1,35 @@
 {
-  "name": "neweather",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.1",
-    "prop-types": "latest",
+    "axios": "^0.16.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7",
-    "css-loader": "^0.28.1",
-    "eslint-config-react-app": "^0.6.2",
-    "foundation-sites": "^6.3.1",
+    "css-loader": "^0.28.4",
+    "foundation-sites": "^6.4.1",
     "jquery": "^3.2.1",
+    "react-super-scripts": "0.2.4",
     "script-loader": "^0.7.0",
-    "style-loader": "^0.17.0"
+    "style-loader": "^0.18.2",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "react_super_scripts": {
+    "appEntry": [
+      "script!jquery/dist/jquery.min.js",
+      "script!foundation-sites/dist/js/foundation.min.js",
+      "src/index.js"
+    ],
+    "port": "3009",
+    "dashboard": false
   }
 }
