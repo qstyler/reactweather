@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import openWeatherMap from '../api/openWeatherMap';
-import ErrorModal from "./ErrorModal";
+import ErrorModal from './ErrorModal';
 
 class Weather extends Component {
 
@@ -60,7 +60,7 @@ class Weather extends Component {
 
         return (
             <div>
-                <h1 className="text-center">Get weather</h1>
+                <h1 className="text-center page-title">Get weather</h1>
                 {renderMessage()}
                 <WeatherForm onSearch={this.handleSearch} />
                 {this.renderError()}

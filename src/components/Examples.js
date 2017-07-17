@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default (props) => (
 
     <div>
-        <h1 className="text-center">Examples</h1>
+        <h1 className="text-center page-title">Examples</h1>
         <p>Here are few examples</p>
         <ul>
             <li>
