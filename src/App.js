@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import Main from './components/Main';
 
-import './styles/App.css'
+import './styles/App.scss'
 
 export default _ => (
     <Router>
