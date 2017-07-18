@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Nav extends Component {
 
@@ -12,7 +13,12 @@ class Nav extends Component {
 
     onSearch(e) {
         e.preventDefault();
-        console.log('not there yet')
+
+        const location = encodeURIComponent(this.refs.location.value.trim());
+        if(location.length) {
+            this.refs.location.value = '';
+            this.props.history.push('/?location=' + location);
+        }
     };
 
     render() {
@@ -37,7 +43,7 @@ class Nav extends Component {
                     <form onSubmit={this.onSearch}>
                         <ul className="menu">
                             <li>
-                                <input type="search" placeholder="Search weather by city" />
+                                <input type="search" ref="location" placeholder="Search weather by city" />
                             </li>
                             <li>
                                 <input type="submit" className="button" value="Get weather" />
@@ -50,4 +56,10 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+Nav.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+    }),
+};
+
+export default withRouter(Nav);

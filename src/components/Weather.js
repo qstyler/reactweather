@@ -3,6 +3,9 @@ import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import openWeatherMap from '../api/openWeatherMap';
 import ErrorModal from './ErrorModal';
+import queryString from 'query-string';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Weather extends Component {
 
@@ -14,6 +17,24 @@ class Weather extends Component {
         };
 
         this.handleSearch = this.handleSearch.bind(this);
+        this.updateData = this.updateData.bind(this);
+    }
+
+    updateData(props) {
+        const { location } = queryString.parse(props.location.search);
+        if (location && location.length) {
+            this.handleSearch(location);
+            history.pushState(null, null, '/');
+        }
+    }
+
+    componentDidMount() {
+        this.updateData(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('here');
+        this.updateData(nextProps);
     }
 
     handleSearch(location) {
@@ -21,6 +42,8 @@ class Weather extends Component {
         this.setState({
             isLoading: true,
             errorMessage: undefined,
+            location: undefined,
+            temp: undefined,
         });
         setTimeout(() => {
             openWeatherMap
@@ -85,5 +108,10 @@ class Weather extends Component {
     );
 }
 
+Weather.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+    }),
+};
 
-export default Weather;
+export default withRouter(Weather);
